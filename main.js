@@ -1,5 +1,6 @@
 
 function limpiarFormulario() {
+  console.log("Limpieza activada");
   const formulario = document.getElementById('formularioModulo');
   if (formulario) {
     formulario.reset();
