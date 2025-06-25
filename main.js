@@ -53,3 +53,10 @@ function exportarDatos() {
   a.click();
   URL.revokeObjectURL(url);
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('botonLimpiar');
+  if (btn) {
+    btn.addEventListener('click', limpiarFormulario);
+  }
+});
