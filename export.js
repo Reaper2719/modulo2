@@ -1,6 +1,6 @@
 
 function exportarDatos() {
-  const data = localStorage.getItem("respuestas_modulo1");
+  const data = localStorage.getItem("respuestas_modulo2");
   if (!data) return alert("No hay datos guardados.");
 
   let area = document.getElementById("json-output");
