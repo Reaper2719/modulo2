@@ -44,10 +44,8 @@
         <label><input type="checkbox" name="p3" value="Petróleo"> Petróleo</label><br>
         <label><input type="checkbox" name="p3" value="Otro"> Otro</label>
       </fieldset>
-      <!-- ...existing form fields... -->
-    </form>
-    <!-- PREGUNTA 4 -->
-    <fieldset>
+      <!-- PREGUNTA 4 -->
+      <fieldset>
       <legend>4. ¿Con qué frecuencia compran gas de pipa o cilindro?</legend>
       <label><input type="radio" name="p4" value="1 pipa por mes"> 1 pipa por mes</label><br>
       <label><input type="radio" name="p4" value="1 pipa cada dos meses"> 1 pipa cada dos meses</label><br>
@@ -102,7 +100,7 @@
     <div class="acciones">
       <button type="button" onclick="guardarRespuestas()">Guardar</button>
       <button type="button" onclick="exportarDatos()">Exportar JSON</button>
-      <button type="button" onclick="limpiarFormulario()">Limpiar Datos</button>
+      <button type="button" onclick="limpiarFormulario()" id="btnLimpiar">Limpiar Datos</button>
     </div>
     <div id="jsonContainer" style="display:none; margin-top:10px;">
       <textarea id="jsonTextarea" rows="10" cols="50" readonly style="width:100%;"></textarea>
@@ -124,4 +122,5 @@
       });
     }
   </script>
-</fieldset>
+</body>
+</html>
