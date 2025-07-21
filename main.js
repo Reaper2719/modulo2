@@ -1,30 +1,50 @@
 
 function limpiarFormulario() {
-  const formulario = document.getElementById('formularioModulo');
-  if (formulario) {
-    formulario.reset();
+    // Limpiar checkboxes
+    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+        checkbox.checked = false;
+    });
 
-    const checkboxes = formulario.querySelectorAll('input[type="checkbox"]');
-    checkboxes.forEach(checkbox => checkbox.checked = false);
+    // Limpiar radios
+    document.querySelectorAll('input[type="radio"]').forEach(radio => {
+        radio.checked = false;
+    });
 
-    const radios = formulario.querySelectorAll('input[type="radio"]');
-    radios.forEach(radio => radio.checked = false);
+    // Limpiar textareas
+    document.querySelectorAll('textarea').forEach(textarea => {
+        textarea.value = '';
+    });
 
-    const textareas = formulario.querySelectorAll('textarea');
-    textareas.forEach(textarea => textarea.value = '');
-  }
+    // Limpiar campos de texto
+    document.querySelectorAll('input[type="text"]').forEach(input => {
+        input.value = '';
+        // Si el input está dentro de un label con checkbox/radio de "Otro"
+        if (input.parentElement.querySelector('input[value="Otro"]')) {
+            input.disabled = true;
+        }
+    });
 }
 
 // Activar campos de texto al marcar 'Otro'
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(input => {
-    input.addEventListener('change', () => {
-      const label = input.parentElement;
-      const otroInput = label.querySelector('input[type="text"]');
-      if (otroInput) {
-        otroInput.disabled = !input.checked;
-        if (!input.checked) otroInput.value = '';
-      }
+// Configuración inicial y eventos
+window.addEventListener('load', function() {
+    // Deshabilitar todos los campos de texto "Otro" al inicio
+    document.querySelectorAll('input[type="text"]').forEach(function(input) {
+        if (input.parentElement.querySelector('input[value="Otro"]')) {
+            input.disabled = true;
+        }
     });
-  });
+
+    // Configurar eventos para inputs de tipo "Otro"
+    document.querySelectorAll('input[value="Otro"]').forEach(function(input) {
+        input.addEventListener('change', function() {
+            let textInput = this.parentElement.querySelector('input[type="text"]');
+            if (textInput) {
+                textInput.disabled = !this.checked;
+                if (!this.checked) {
+                    textInput.value = '';
+                }
+            }
+        });
+    });
 });

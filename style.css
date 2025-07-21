@@ -5,6 +5,14 @@ body {
   background: #f4f4f4;
   color: #333;
 }
+.sena-logo {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  z-index: 10;
+}
 main {
   max-width: 800px;
   margin: auto;
@@ -12,6 +20,7 @@ main {
   background: #fff;
   border-radius: 10px;
   margin-top: 30px;
+  position: relative;
 }
 h1 {
   text-align: center;
@@ -30,7 +39,9 @@ label {
   display: block;
   margin-bottom: 8px;
 }
-textarea, input[type="text"], input[type="number"] {
+input[type="text"],
+input[type="number"],
+textarea {
   width: 100%;
   padding: 8px;
   margin-top: 5px;
@@ -40,19 +51,29 @@ textarea, input[type="text"], input[type="number"] {
 }
 .acciones {
   display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 30px;
 }
 button {
-  padding: 10px 20px;
+  padding: 10px 24px;
   border: none;
+  border-radius: 6px;
   background-color: #0b6121;
-  color: white;
-  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
   cursor: pointer;
+  transition: background 0.2s;
 }
 button:hover {
-  background-color: #094d1a;
+  background-color: #008751;
+}
+@media (max-width: 768px) {
+  .acciones {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 @media (max-width: 768px) {
   .acciones {
