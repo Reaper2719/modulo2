@@ -2,164 +2,126 @@
 <html lang="es">
 <head>
   <link rel="stylesheet" href="style.css">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="manifest" href="manifest.json">
-     <link rel="stylesheet" href="style.css" />
-  <title>Módulo 2 - Observación Técnica</title>
+  
+  <title>Módulo 1 - Encuesta Energética</title>
 </head>
 <body>
   <img src="img/logo-sena.png" alt="Logo SENA" class="sena-logo" />
   <main>
-    <h1>Módulo 2: Observación Técnica (RETIE)</h1>
+    <h1>Encuesta Energética - Módulo 1</h1>
     <form id="formularioModulo">
-      <!-- 1 -->
+      <p><strong>Descripcion de la casa:</strong></p>
+      <textarea name="casa" rows="4" cols="50" placeholder="Coloque aqui la descripcion de la casa (Acorde en los tres modulos)"></textarea>
+      <!-- PREGUNTA 1 -->
       <fieldset>
-        <legend>1. Describa la acometida observada desde el poste hasta la vivienda.</legend>
-        <textarea name="p1" rows="3" placeholder="Escriba su descripción aquí..."></textarea>
+        <legend>1. ¿Qué problemas relacionados con el servicio de energía eléctrica se presentan con frecuencia en su vivienda o comunidad?</legend>
+        <label><input type="checkbox" name="p1" value="Apagones o cortes de luz frecuentes"> Apagones o cortes de luz frecuentes</label><br>
+        <label><input type="checkbox" name="p1" value="Baja tensión (los bombillos alumbran poco)"> Baja tensión (los bombillos alumbran poco)</label><br>
+        <label><input type="checkbox" name="p1" value="Daños o quema de electrodomésticos"> Daños o quema de electrodomésticos</label><br>
+        <label><input type="checkbox" name="p1" value="Sobrecargas (se disparan los tacos o el sistema colapsa)"> Sobrecargas (se disparan los tacos o el sistema colapsa)</label><br>
+        <label><input type="checkbox" name="p1" value="No presenta problemas con la energía"> No presenta problemas con la energía</label>
       </fieldset>
-      <!-- 2 -->
+      <!-- PREGUNTA 2 -->
       <fieldset>
-        <legend>2. ¿La vivienda tiene instalación eléctrica fija?</legend>
-        <label><input type="radio" name="p2" value="Sí"> Sí</label>
-        <label><input type="radio" name="p2" value="No"> No</label>
+        <legend>2. Si utiliza combustibles para plantas eléctricas (como gasolina, diésel), ¿cuánto gasta aproximadamente al mes?</legend>
+        <label><input type="radio" name="p2" value="Menos de $50.000"> Menos de $50.000</label><br>
+        <label><input type="radio" name="p2" value="Entre $50.000 y $100.000"> Entre $50.000 y $100.000</label><br>
+        <label><input type="radio" name="p2" value="Entre $100.000 y $150.000"> Entre $100.000 y $150.000</label><br>
+        <label><input type="radio" name="p2" value="Entre $150.000 y $200.000"> Entre $150.000 y $200.000</label><br>
+        <label><input type="radio" name="p2" value="Más de $200.000"> Más de $200.000</label><br>
+        <label><input type="radio" name="p2" value="No aplica"> No aplica</label>
       </fieldset>
-      <!-- 3 -->
+      <!-- PREGUNTA 3 -->
       <fieldset>
-        <legend>3. ¿La instalación de la vivienda es?</legend>
-        <label><input type="radio" name="p3" value="Áerea"> Áerea</label>
-        <label><input type="radio" name="p3" value="Empotrada"> Empotrada</label>
-        <label><input type="radio" name="p3" value="Mixta"> Mixta</label>
-        <label><input type="radio" name="p3" value="No aplica"> No aplica</label>
-      </fieldset>
-      <!-- 4 -->
-      <fieldset>
-        <legend>4. ¿Existe tablero de distribución?</legend>
-        <label><input type="radio" name="p4" value="Sí"> Sí</label>
-        <label><input type="radio" name="p4" value="No"> No</label>
-        <label><input type="radio" name="p4" value="Solo fusibles improvisados"> Solo fusibles improvisados</label>
-      </fieldset>
-      <!-- 5 -->
-      <fieldset>
-        <legend>5. ¿El tablero tiene protecciones?</legend>
-        <label><input type="checkbox" name="p5" value="Interruptor general"> Interruptor general</label>
-        <label><input type="checkbox" name="p5" value="Breakers individuales"> Breakers individuales</label>
+        <legend>3. ¿Qué tipo de energía o combustible utiliza para cocinar en su hogar?</legend>
+        <label><input type="checkbox" name="p3" value="Energía eléctrica"> Energía eléctrica</label><br>
+        <label><input type="checkbox" name="p3" value="Gas de pipa o cilindro"> Gas de pipa o cilindro</label><br>
+        <label><input type="checkbox" name="p3" value="Leña"> Leña</label><br>
+        <label><input type="checkbox" name="p3" value="Carbón"> Carbón</label><br>
+        <label><input type="checkbox" name="p3" value="Petróleo"> Petróleo</label><br>
+        <label><input type="checkbox" name="p3" value="Otro"> Otro</label>
       </fieldset>
       <!-- ...existing form fields... -->
     </form>
-  <label><input type="checkbox" name="p5" value="Fusibles"> Fusibles</label>
-  <label><input type="checkbox" name="p5" value="Cuchilla de protección"> Cuchilla de protección</label>
-  <label><input type="checkbox" name="p5" value="Ninguna"> Ninguna</label>
-</fieldset>
+    <!-- PREGUNTA 4 -->
+    <fieldset>
+      <legend>4. ¿Con qué frecuencia compran gas de pipa o cilindro?</legend>
+      <label><input type="radio" name="p4" value="1 pipa por mes"> 1 pipa por mes</label><br>
+      <label><input type="radio" name="p4" value="1 pipa cada dos meses"> 1 pipa cada dos meses</label><br>
+      <label><input type="radio" name="p4" value="1 pipa cada tres meses"> 1 pipa cada tres meses</label><br>
+      <label><input type="radio" name="p4" value="1 pipa cada cuatro meses"> 1 pipa cada cuatro meses</label><br>
+      <label><input type="radio" name="p4" value="1 pipa cada cinco meses"> 1 pipa cada cinco meses</label>
+    </fieldset>
 
-<!-- 6 -->
-<fieldset>
-  <legend>6. ¿Hay señales de sobrecalentamiento?</legend>
-  <label><input type="radio" name="p6" value="Sí"> Sí</label>
-  <label><input type="radio" name="p6" value="No"> No</label>
-</fieldset>
+    <!-- PREGUNTA 5 -->
+    <fieldset>
+      <legend>5. ¿Qué tamaño de pipa o cilindro de gas compra habitualmente?</legend>
+      <label><input type="radio" name="p5" value="1 pipa de 10 libras"> 1 pipa de 10 libras</label><br>
+      <label><input type="radio" name="p5" value="1 pipa de 20 libras"> 1 pipa de 20 libras</label><br>
+      <label><input type="radio" name="p5" value="1 pipa de 33 libras"> 1 pipa de 33 libras</label><br>
+      <label><input type="radio" name="p5" value="1 pipa de 40 libras"> 1 pipa de 40 libras</label><br>
+      <label><input type="radio" name="p5" value="No usa gas"> No usa gas</label><br>
+      <label><input type="radio" name="p5" value="Gas Domiciliario"> Gas Domiciliario</label><br>
+      <label><input type="radio" name="p5" value="Otro"> Otro</label>
+    </fieldset>
 
+    <!-- PREGUNTA 6 -->
+    <fieldset>
+      <legend>6. ¿Cuánto paga aproximadamente por el cilindro de gas de pipa o cilindro que utiliza?</legend>
+      <label><input type="radio" name="p6" value="Menos de $50.000"> Menos de $50.000</label><br>
+      <label><input type="radio" name="p6" value="Entre $50.000 y $80.000"> Entre $50.000 y $80.000</label><br>
+      <label><input type="radio" name="p6" value="Entre $80.000 y $110.000"> Entre $80.000 y $110.000</label><br>
+      <label><input type="radio" name="p6" value="Entre $110.000 y $140.000"> Entre $110.000 y $140.000</label><br>
+      <label><input type="radio" name="p6" value="Más de $140.000"> Más de $140.000</label>
+    </fieldset>
 
-<!-- 7 -->
-<fieldset>
-  <legend>7. ¿Qué tipo de canalización se observa en el interior de la casa?</legend>
-  <label><input type="checkbox" name="p7" value="Tubo PVC"> Tubo PVC</label>
-  <label><input type="checkbox" name="p7" value="Flexible corrugado"> Flexible corrugado</label>
-  <label><input type="checkbox" name="p7" value="Canal metálico"> Canal metálico</label>
-  <label><input type="checkbox" name="p7" value="Cable a la vista"> Cable a la vista</label>
-  <label><input type="checkbox" name="p7" value="Mixto"> Mixto</label>
-  <label><input type="checkbox" name="p7" value="Otro"> Otro</label>
-</fieldset>
+    <!-- PREGUNTA 7 -->
+    <fieldset>
+      <legend>7. ¿Cuánto le cuesta mensualmente la energía eléctrica?</legend>
+      <label><input type="radio" name="p7" value="$20.000 – $60.000"> $20.000 – $60.000</label><br>
+      <label><input type="radio" name="p7" value="$60.000 – $100.000"> $60.000 – $100.000</label><br>
+      <label><input type="radio" name="p7" value="$100.000 – $150.000"> $100.000 – $150.000</label><br>
+      <label><input type="radio" name="p7" value="Más de $150.000"> Más de $150.000</label><br>
+      <label><input type="radio" name="p7" value="No paga"> No paga</label><br>
+      <label><input type="radio" name="p7" value="No tiene servicio"> No tiene servicio</label>
+    </fieldset>
 
-<!-- 8 -->
-<fieldset>
-  <legend>8. ¿Calibre del conductor observado?</legend>
-  <label><input type="checkbox" name="p8" value="14 AWG"> 14 AWG</label>
-  <label><input type="checkbox" name="p8" value="12 AWG"> 12 AWG</label>
-  <label><input type="checkbox" name="p8" value="10 AWG"> 10 AWG</label>
-  <label><input type="checkbox" name="p8" value="No se puede verificar"> No se puede verificar</label>
-</fieldset>
+    <!-- PREGUNTA 8 -->
+    <fieldset>
+      <legend>8. ¿Qué tan importante considera usted que es contar con energía eléctrica para el bienestar y desarrollo de su comunidad?</legend>
+      <label><input type="radio" name="p8" value="Es fundamental para mejorar la calidad de vida y generar oportunidades"> Es fundamental para mejorar la calidad de vida y generar oportunidades</label><br>
+      <label><input type="radio" name="p8" value="Es importante, aunque se puede vivir con restricciones"> Es importante, aunque se puede vivir con restricciones</label><br>
+      <label><input type="radio" name="p8" value="Es útil, pero no es una necesidad prioritaria"> Es útil, pero no es una necesidad prioritaria</label><br>
+      <label><input type="radio" name="p8" value="No lo considero necesario"> No lo considero necesario</label><br>
+      <label><input type="radio" name="p8" value="No sabe / No responde"> No sabe / No responde</label>
+    </fieldset>
 
-<!-- 9 -->
-<fieldset>
-  <legend>9. ¿Conductores con aislamiento en buen estado?</legend>
-  <label><input type="radio" name="p9" value="Sí"> Sí</label>
-  <label><input type="radio" name="p9" value="No"> No</label>
-  <label><input type="radio" name="p9" value="Parcial"> Parcial</label>
-  <label><input type="radio" name="p9" value="No se pudo verificar"> No se pudo verificar</label>
-</fieldset>
-
-<!-- 10 -->
-<fieldset>
-  <legend>10. ¿Tiene puesta a tierra?</legend>
-  <label><input type="radio" name="p10" value="Sí"> Sí</label>
-  <label><input type="radio" name="p10" value="No"> No</label>
-  <label><input type="radio" name="p10" value="Desconectada"> Desconectada</label>
-  <label><input type="radio" name="p10" value="No se puede verificar"> No se puede verificar</label>
-</fieldset>
-
-<!-- 11 -->
-<fieldset>
-  <legend>11. ¿Instalaciones en zonas húmedas sin protección?</legend>
-  <label><input type="radio" name="p11" value="Sí"> Sí</label>
-  <label><input type="radio" name="p11" value="No"> No</label>
-  <label><input type="radio" name="p11" value="No se verificó"> No se verificó</label>
-</fieldset>
-
-<!-- 12 -->
-<fieldset>
-  <legend>12. ¿Extensiones eléctricas improvisadas?</legend>
-  <label><input type="radio" name="p12" value="Sí"> Sí</label>
-  <label><input type="radio" name="p12" value="No"> No</label>
-  <label><input type="radio" name="p12" value="Temporales"> Temporales</label>
-</fieldset>
-
-<!-- 13 -->
-<fieldset>
-  <legend>13. ¿Se han presentado accidentes eléctricos?</legend>
-  <label><input type="radio" name="p13" value="Sí"> Sí</label>
-  <label><input type="radio" name="p13" value="No"> No</label>
-  <label><input type="radio" name="p13" value="No sabe / No responde"> No sabe / No responde</label>
-</fieldset>
-
-<!-- 14 -->
-<fieldset>
-  <legend>14. Nivel de riesgo eléctrico observado</legend>
-  <label><input type="radio" name="p14" value="Bajo"> Bajo</label>
-  <label><input type="radio" name="p14" value="Medio"> Medio</label>
-  <label><input type="radio" name="p14" value="Alto"> Alto</label>
-</fieldset>
-
-<!-- 15 -->
-<fieldset>
-  <legend>15. ¿Cuáles son los usos prioritarios que usted le da a la energía eléctrica en su hogar?</legend>
-  <label><input type="checkbox" name="p15" value="Iluminación"> Iluminación</label>
-  <label><input type="checkbox" name="p15" value="Refrigeración de alimentos"> Refrigeración de alimentos</label>
-  <label><input type="checkbox" name="p15" value="Carga de celular u otros dispositivos"> Carga de celular u otros dispositivos</label>
-  <label><input type="checkbox" name="p15" value="Televisión y entretenimiento"> Televisión y entretenimiento</label>
-  <label><input type="checkbox" name="p15" value="Ventilación o aire acondicionado"> Ventilación o aire acondicionado</label>
-  <label><input type="checkbox" name="p15" value="Cocinar o calentar alimentos"> Cocinar o calentar alimentos</label>
-  <label><input type="checkbox" name="p15" value="Trabajo o actividades productivas (costura, carpintería, etc.)"> Trabajo o actividades productivas (costura, carpintería, etc.)</label>
-  <label><input type="checkbox" name="p15" value="Bombeo de agua"> Bombeo de agua</label>
-  <label><input type="checkbox" name="p15" value="Educación (uso de computador, tablet, iluminación para estudio)"> Educación (uso de computador, tablet, iluminación para estudio)</label>
-  <label><input type="checkbox" name="p15" value="Otro"> Otro: <input type="text" name="p15_otro" placeholder="Especifique..." /></label>
-</fieldset>
-
-
-      <div class="acciones">
-        <button type="button" onclick="guardarRespuestas()">Guardar</button>
-        <button type="button" onclick="exportarDatos()">Exportar JSON</button>
-        <button type="button" onclick="limpiarFormulario()">Limpiar Datos</button>
-      </div>
-    </form>
+    <div class="acciones">
+      <button type="button" onclick="guardarRespuestas()">Guardar</button>
+      <button type="button" onclick="exportarDatos()">Exportar JSON</button>
+      <button type="button" onclick="limpiarFormulario()">Limpiar Datos</button>
+    </div>
+    <div id="jsonContainer" style="display:none; margin-top:10px;">
+      <textarea id="jsonTextarea" rows="10" cols="50" readonly style="width:100%;"></textarea>
+    </div>
+  </form>
   </main>
+
   <script src="indexedDB.js"></script>
   <script src="main.js"></script>
   <script src="export.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js');
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('service-worker.js').then(function(reg) {
+          // Registro exitoso
+        }, function(err) {
+          console.warn('SW registration failed', err);
+        });
+      });
     }
   </script>
-</body>
-</html>
+</fieldset>
