@@ -28,24 +28,18 @@ function exportarDatos() {
     // Preparar todos los registros para exportar
     const todosLosRegistros = JSON.stringify(registrosAcumulados, null, 2);
     
-    // Mostrar los datos en el textarea
-    let exportArea = document.getElementById('exportArea');
-    if (!exportArea) {
-        exportArea = document.createElement('div');
-        exportArea.id = 'exportArea';
-        exportArea.style.margin = '20px 0';
-        exportArea.innerHTML = `
-            <h3>Datos Exportados</h3>
-            <textarea id="jsonExportText" style="width:100%;height:200px;margin:10px 0;">${todosLosRegistros}</textarea>
-            <button id="btnCopiarJson" style="margin-right:10px;">Copiar JSON</button>
-            <button id="btnDescargarJson">Descargar JSON</button>
-        `;
-        document.querySelector('.acciones').appendChild(exportArea);
-        
-        // Agregar funcionalidad al botón de copiar
-        document.getElementById('btnCopiarJson').onclick = function() {
-            const textarea = document.getElementById('jsonExportText');
-            textarea.select();
+    // Mostrar el área de exportación y actualizar el contenido
+    const exportArea = document.getElementById('exportArea');
+    const jsonExportText = document.getElementById('jsonExportText');
+    
+    exportArea.style.display = 'block';
+    jsonExportText.value = todosLosRegistros;
+    
+    // Configurar el botón de copiar si aún no está configurado
+    const btnCopiar = document.getElementById('btnCopiarJson');
+    if (!btnCopiar.onclick) {
+        btnCopiar.onclick = function() {
+            jsonExportText.select();
             try {
                 document.execCommand('copy');
                 this.textContent = '¡Copiado!';
@@ -55,9 +49,12 @@ function exportarDatos() {
                 setTimeout(() => { this.textContent = 'Copiar JSON'; }, 1500);
             }
         };
-        
-        // Agregar funcionalidad al botón de descargar
-        document.getElementById('btnDescargarJson').onclick = function() {
+    }
+    
+    // Configurar el botón de descargar si aún no está configurado
+    const btnDescargar = document.getElementById('btnDescargarJson');
+    if (!btnDescargar.onclick) {
+        btnDescargar.onclick = function() {
             const blob = new Blob([todosLosRegistros], { type: 'application/json' });
             const url = window.URL.createObjectURL(blob);
             const enlaceDescarga = document.createElement('a');
@@ -66,8 +63,6 @@ function exportarDatos() {
             enlaceDescarga.click();
             window.URL.revokeObjectURL(url);
         };
-    } else {
-        document.getElementById('jsonExportText').value = todosLosRegistros;
     }
 }
 

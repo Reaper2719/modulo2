@@ -153,6 +153,12 @@
         <div id="contadorRegistros" class="contador">Registros acumulados: 0</div>
       </div>
     </form>
+    <div id="exportArea" style="display: none;">
+      <h3>Datos Exportados</h3>
+      <textarea id="jsonExportText" readonly></textarea>
+      <button id="btnCopiarJson">Copiar JSON</button>
+      <button id="btnDescargarJson">Descargar JSON</button>
+    </div>
   </main>
   <script src="indexedDB.js"></script>
   <script src="main.js"></script>

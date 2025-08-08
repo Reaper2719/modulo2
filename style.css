@@ -91,15 +91,43 @@ button {
 button:hover {
   background-color: #008751;
 }
+
+#exportArea {
+  margin: 20px 0;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+#exportArea h3 {
+  margin-top: 0;
+  color: #0b6121;
+}
+
+#jsonExportText {
+  width: 100%;
+  height: 200px;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: monospace;
+  resize: vertical;
+}
+
+#exportArea button {
+  margin-right: 10px;
+}
+
 @media (max-width: 768px) {
   .acciones {
     flex-direction: column;
     gap: 10px;
   }
-}
-@media (max-width: 768px) {
-  .acciones {
-    flex-direction: column;
-    gap: 10px;
+  #exportArea button {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
   }
 }
