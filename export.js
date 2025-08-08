@@ -57,9 +57,28 @@ function mostrarJsonEnModal(json) {
         <h2>JSON exportado</h2>
         <textarea id="jsonExportText" style="width:100%;height:200px;">${json}</textarea>
         <button onclick="document.getElementById('modalJsonExport').style.display='none';document.getElementById('modalJsonOverlay').style.display='none';">Cerrar</button>
+        <button id="btnCopiarJson" style="margin-left:10px;">Copiar JSON</button>
         <p style="font-size:0.9em;color:#666;">Copia el contenido y pégalo donde lo necesites.</p>
       </div>
     `;
+  // Agregar funcionalidad al botón de copiar JSON
+  setTimeout(function() {
+    const btnCopiar = document.getElementById('btnCopiarJson');
+    if (btnCopiar) {
+      btnCopiar.onclick = function() {
+        const textarea = document.getElementById('jsonExportText');
+        textarea.select();
+        try {
+          document.execCommand('copy');
+          btnCopiar.textContent = '¡Copiado!';
+          setTimeout(()=>{btnCopiar.textContent = 'Copiar JSON';}, 1500);
+        } catch (e) {
+          btnCopiar.textContent = 'No se pudo copiar';
+          setTimeout(()=>{btnCopiar.textContent = 'Copiar JSON';}, 1500);
+        }
+      };
+    }
+  }, 0);
     modal.style.position = 'fixed';
     modal.style.top = '50%';
     modal.style.left = '50%';
