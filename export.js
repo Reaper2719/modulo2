@@ -28,84 +28,52 @@ function exportarDatos() {
     // Preparar todos los registros para exportar
     const todosLosRegistros = JSON.stringify(registrosAcumulados, null, 2);
     
-    // Crear el blob y el enlace de descarga
-    const blob = new Blob([todosLosRegistros], { type: 'application/json' });
-    const url = window.URL.createObjectURL(blob);
-    const enlaceDescarga = document.createElement('a');
-    enlaceDescarga.href = url;
-    enlaceDescarga.download = `registros_modulo2_${new Date().toISOString().slice(0,10)}.json`;
-    
-    // En iPad necesitamos mostrar el contenido en una nueva pestaña
-    if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-        window.open(url, '_blank');
+    // Mostrar los datos en el textarea
+    let exportArea = document.getElementById('exportArea');
+    if (!exportArea) {
+        exportArea = document.createElement('div');
+        exportArea.id = 'exportArea';
+        exportArea.style.margin = '20px 0';
+        exportArea.innerHTML = `
+            <h3>Datos Exportados</h3>
+            <textarea id="jsonExportText" style="width:100%;height:200px;margin:10px 0;">${todosLosRegistros}</textarea>
+            <button id="btnCopiarJson" style="margin-right:10px;">Copiar JSON</button>
+            <button id="btnDescargarJson">Descargar JSON</button>
+        `;
+        document.querySelector('.acciones').appendChild(exportArea);
+        
+        // Agregar funcionalidad al botón de copiar
+        document.getElementById('btnCopiarJson').onclick = function() {
+            const textarea = document.getElementById('jsonExportText');
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                this.textContent = '¡Copiado!';
+                setTimeout(() => { this.textContent = 'Copiar JSON'; }, 1500);
+            } catch (e) {
+                this.textContent = 'No se pudo copiar';
+                setTimeout(() => { this.textContent = 'Copiar JSON'; }, 1500);
+            }
+        };
+        
+        // Agregar funcionalidad al botón de descargar
+        document.getElementById('btnDescargarJson').onclick = function() {
+            const blob = new Blob([todosLosRegistros], { type: 'application/json' });
+            const url = window.URL.createObjectURL(blob);
+            const enlaceDescarga = document.createElement('a');
+            enlaceDescarga.href = url;
+            enlaceDescarga.download = `registros_modulo2_${new Date().toISOString().slice(0,10)}.json`;
+            enlaceDescarga.click();
+            window.URL.revokeObjectURL(url);
+        };
     } else {
-        enlaceDescarga.click();
+        document.getElementById('jsonExportText').value = todosLosRegistros;
     }
-    
-    window.URL.revokeObjectURL(url);
-    mostrarJsonEnModal(todosLosRegistros);
 }
 
+// Esta función ya no se usa ya que ahora mostramos el textarea directamente en la página
 function mostrarJsonEnModal(json) {
-  let modal = document.getElementById('modalJsonExport');
-  let overlay = document.getElementById('modalJsonOverlay');
-  if (!modal) {
-    modal = document.createElement('div');
-    modal.id = 'modalJsonExport';
-    modal.innerHTML = `
-      <div style="background:#fff;padding:20px;border-radius:8px;max-width:90vw;max-height:80vh;overflow:auto;box-shadow:0 2px 10px #0003;">
-        <h2>JSON exportado</h2>
-        <textarea id="jsonExportText" style="width:100%;height:200px;">${json}</textarea>
-        <button onclick="document.getElementById('modalJsonExport').style.display='none';document.getElementById('modalJsonOverlay').style.display='none';">Cerrar</button>
-        <button id="btnCopiarJson" style="margin-left:10px;">Copiar JSON</button>
-        <p style="font-size:0.9em;color:#666;">Copia el contenido y pégalo donde lo necesites.</p>
-      </div>
-    `;
-  // Agregar funcionalidad al botón de copiar JSON
-  setTimeout(function() {
-    const btnCopiar = document.getElementById('btnCopiarJson');
-    if (btnCopiar) {
-      btnCopiar.onclick = function() {
-        const textarea = document.getElementById('jsonExportText');
-        textarea.select();
-        try {
-          document.execCommand('copy');
-          btnCopiar.textContent = '¡Copiado!';
-          setTimeout(()=>{btnCopiar.textContent = 'Copiar JSON';}, 1500);
-        } catch (e) {
-          btnCopiar.textContent = 'No se pudo copiar';
-          setTimeout(()=>{btnCopiar.textContent = 'Copiar JSON';}, 1500);
-        }
-      };
-    }
-  }, 0);
-    modal.style.position = 'fixed';
-    modal.style.top = '50%';
-    modal.style.left = '50%';
-    modal.style.transform = 'translate(-50%, -50%)';
-    modal.style.zIndex = '10001';
-    document.body.appendChild(modal);
-    overlay = document.createElement('div');
-    overlay.id = 'modalJsonOverlay';
-    overlay.style.position = 'fixed';
-    overlay.style.top = '0';
-    overlay.style.left = '0';
-    overlay.style.width = '100vw';
-    overlay.style.height = '100vh';
-    overlay.style.background = 'rgba(0,0,0,0.3)';
-    overlay.style.zIndex = '10000';
-    overlay.onclick = function() {
-      modal.style.display = 'none';
-      overlay.style.display = 'none';
-    };
-    document.body.appendChild(overlay);
-  } else {
-    modal.querySelector('textarea').value = json;
-    modal.style.display = 'block';
-    overlay.style.display = 'block';
-  }
-  modal.style.display = 'block';
-  overlay.style.display = 'block';
+    // Función mantenida por compatibilidad pero ya no se utiliza
 }
 
 
